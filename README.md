@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌊 Handling Hydration Errors in Next.js
 
-## Getting Started
+Hydration errors are common issues in modern web development, especially in frameworks like React and Next.js, where server-side rendering (SSR) meets client-side interactivity. This guide explains what hydration errors are, common scenarios where they occur, and best practices to avoid them.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. [What are Hydration Errors?](#what-are-hydration-errors)
+2. [Common Scenarios](#common-scenarios)
+3. [Best Practices](#best-practices)
+4. [Conclusion](#conclusion)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What are Hydration Errors?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Hydration errors occur when the client-side JavaScript code is not compatible with the server-side rendered HTML. This can happen due to various reasons, such as:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Inconsistent state: The client-side state is not consistent with the server-side state, leading to unexpected behavior.
+- Missing or incorrect event handlers: The client-side event handlers are not available during server-side rendering, causing inconsistent behavior.
+- Inconsistent styles: The client-side styles are not consistent with the server-side rendered HTML, leading to unexpected visual differences.
 
-## Learn More
+## Common Scenarios
 
-To learn more about Next.js, take a look at the following resources:
+Here are some common scenarios where hydration errors can occur:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Inconsistent State
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+When the client-side state is not consistent with the server-side state, it can lead to unexpected behavior. For example, if the client-side state is used to determine the visibility of a button, and the server-side state is updated based on user interactions, the button may not be visible on the server-side.
 
-## Deploy on Vercel
+### Missing or Incorrect Event Handlers
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If the client-side event handlers are not available during server-side rendering, it can lead to inconsistent behavior. For example, if the client-side event handler is used to update the server-side state, but the server-side state is not updated, the button may not be clickable on the server-side.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Inconsistent Styles
+
+If the client-side styles are not consistent with the server-side rendered HTML, it can lead to unexpected visual differences. For example, if the client-side styles are applied based on the client-side state, but the server-side rendered HTML does not match the client-side state, the styles may not be applied correctly.
+
+## Best Practices
+
+To avoid hydration errors, follow these best practices:
+
+1. **Always use client-side state to determine the visibility of elements.** If the client-side state is used to determine the visibility of an element, the server-side rendered HTML will match the client-side state, ensuring consistent behavior.
+
+2. **Dynamically change event handlers based on client-side state.** If the client-side event handler is used to update the server-side state, but the server-side state is not updated, the button may not be clickable on the server-side. To avoid this, dynamically change the event handler based on client-side state.
+
+3. **Ensure that the initial styles are consistent between SSR and CSR.** If the initial styles do not match between SSR and CSR, the server-side rendered HTML will not match the client-side styles, leading to unexpected visual differences.
+
+## Conclusion
+
+Hydration errors can be challenging to debug, but by following best practices, you can minimize their impact on your web development projects. Remember to always use client-side state to determine the visibility of elements, dynamically change event handlers based on client-side state, and ensure that the initial styles are consistent between SSR and CSR.   
+
+Happy coding!
