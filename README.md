@@ -7,7 +7,8 @@ Hydration errors are common issues in modern web development, especially in fram
 1. [What are Hydration Errors?](#what-are-hydration-errors)
 2. [Common Scenarios](#common-scenarios)
 3. [Best Practices](#best-practices)
-4. [Conclusion](#conclusion)
+4. [Code Examples](#code-examples)
+5. [Conclusion](#conclusion)
 
 ## What are Hydration Errors?
 
@@ -42,6 +43,18 @@ To avoid hydration errors, follow these best practices:
 2. **Dynamically change event handlers based on client-side state.** If the client-side event handler is used to update the server-side state, but the server-side state is not updated, the button may not be clickable on the server-side. To avoid this, dynamically change the event handler based on client-side state.
 
 3. **Ensure that the initial styles are consistent between SSR and CSR.** If the initial styles do not match between SSR and CSR, the server-side rendered HTML will not match the client-side styles, leading to unexpected visual differences.
+
+## Code Examples
+//run the code
+
+```bash
+npm run dev
+```
+1. **Open the browser and go to** http://localhost:3000/inconsistent-state/bad and http://localhost:3000/inconsistent-state/good
+
+2. **open the browser and go to** http://localhost:3000/random/bad and http://localhost:3000/random/good
+
+
 
 ## Conclusion
 
